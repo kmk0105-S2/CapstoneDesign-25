@@ -12,5 +12,5 @@
 | **사용할 소프트웨어 패키지의 명칭과 핵심기능/용도, 사용시나리오** | **Pytorch** : 딥러닝 모델 개발 및 학습 프레임워크<br>**Captum** (PyTorch Explainability Library): 딥러닝 모델 설명 가능성(XAI) 지원, Saliency map, Integrated Gradients, Layer Attribution 기법 제공<br>**TensorBoard**: 학습 과정 시각화 및 모델 성능 모니터링<br> **PostgreSQL**: 테이블 형태의 임상 데이터 관리<br> **MONAI**: 의료 영상용 pytorch 기반 프레임워크 |
 | **사용할 소프트웨어 패키지의 명칭과 URL** | [**Pytorch**](https://pytorch.org/)<br>[**Captum**](https://captum.ai/?utm_source=chatgpt.com)<br>[**TensorBoard**](https://www.tensorflow.org/tensorboard?utm_source=chatgpt.com)<br>[**MONAI**](https://github.com/Project-MONAI/MONAI/blob/dev/README.md)<br>[**jupyter**](https://jupyter.org/)<br>[**python**](www.python.org)<br>[**numpy**](https://numpy.org/)<br>[**pandas**](https://pandas.pydata.org/)<br>[**Cuda**](https://developer.nvidia.com/Cuda-toolkit)<br>[**Matplotlib**](https://matplotlib.org/)<br>[**PostgreSQL**](https://www.postgresql.org/)|
 | **팀 그라운드룰** | [GroundRule](https://github.com/kmk0105-S2/CapstoneDesign-25/blob/main/GroudRule.MD) |
-| **최종 수정일** | 2025.11.13 |
+| **최종 수정일** | 2025.11.30 |
 
