@@ -1,41 +1,75 @@
-# 멀티모달 의료인공지능 및 설명가능성 연구
+# 멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발
+# Development of a Hierarchical Multimodal AI Model for Ovarian Cancer Diagnosis and Recurrence Prediction
+
 
 ## 연구 주제
-**멀티모달 의료인공지능 및 설명가능성 연구**  
-의료 영상, 생체 신호, 임상 기록 등 다양한 멀티모달 데이터를 활용하여 질병을 예측하는 AI 모델을 개발하고, 단순한 결과 제시에 그치지 않고 **설명가능성(Explainability, XAI)** 을 확보하는 방법론을 연구한다.
+**멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발**  
+본 연구는 의료 영상(CT) 과 임상 데이터(EHR) 를 통합한 멀티모달 인공지능 모델을 통해
+1. 난소 종양의 계층적 진단(양성 → 악성 → 병기) 을 수행하고,
+2. 치료 이후 재발 위험 및 예후를 예측하는 설명가능한 의료 AI 모델을 개발하는 것을 목표로 한다.
 
 ---
 
 ## 연구 배경
-- 의료 AI는 높은 정확성과 더불어 **설명가능성 확보**가 매우 중요함.
-- 양질의 공개 의료데이터가 점차 증가하고 있어, 최신 기법을 활용한 연구의 필요성이 커지고 있음.
-- 기존 의료인공지능 연구는 **예측 성능 향상에만 집중**하는 경향이 있으며, 임상적으로 중요한 해석 가능성, 투명성, 범용성이 부족한 문제를 가지고 있음.
+- 난소암은 조기 진단이 어렵고 재발률이 높아 정확한 진단 및 예후 예측이 매우 중요함.
+- 기존 의료 AI 연구는 단일 모달(영상 또는 임상 데이터)에 의존하는 경우가 많아 임상 정보의 복합적 맥락을 충분히 반영하지 못함.
+- 또한, 높은 예측 성능에도 불구하고 의사결정 근거가 불투명하여 실제 임상 적용에 한계가 존재함.
+- 이에 본 연구는 멀티모달 데이터 기반의 계층적 예측 구조와 설명가능한 인공지능(XAI) 기법을 결합하여, 임상적으로 신뢰 가능한 난소암 진단 및 재발 예측 모델을 제안한다.
+
+---
+
+## 문제 정의 (Probelm Definition)
+본 연구는 다음의 세 가지 예측 문제를 계층적(hierarchical) 으로 해결한다.
+step 1) 난소 종양 양성 vs 악성 분류
+step 2) 악성 종양에 대한 병기(Stage) 분류
+step 3) 치료 이후 재발 위험 및 예후 예측
+이를 통해 실제 임상 의사결정 흐름과 유사한 단계적 판단 구조를 모델에 반영한다.
+
+---
+
+## Dataset
+1. [AIHub 난소암 데이터셋](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EB%82%9C%EC%86%8C%EC%95%94&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=71727)
+2. [MMOTU - Ovarian Ultrasound Images Dataset](https://www.kaggle.com/datasets/orvile/mmotu-ovarian-ultrasound-images-dataset/data)
+3. [Ovarian Cancer Risk and Progression Data](https://www.kaggle.com/datasets/datasetengineer/ovarian-cancer-risk-and-progression-data?select=Ovarian_patient_data.csv)
 
 ---
 
 ## 연구 내용
-1. **멀티모달 공개 의료데이터셋 확보 및 전처리**
-   - 영상(CT, MRI 등), 생체 신호(ECG 등), 임상기록(EHR) 등 다양한 데이터 수집 및 정제
-   - 데이터 정규화, 라벨링, 통합 과정 수행
+1. **멀티모달 데이터 전처리**
+   - 초음파 영상 전처리 : normalization, resizing
+   - 임상 데이터 전처리 : 결측치 처리, 범주형 변수 encoding
 
-2. **최신 딥러닝 기반 의료인공지능 모델 설계**
-   - Transformer, Vision-Language Model 등 멀티모달 딥러닝 기법 적용
-   - 데이터 특성에 맞는 모델 구조 탐색 및 학습 전략 수립
+2. **멀티모달 AI 모델 설계**
+   - Image Encoder : ResNet50, ViT, ResNet50/ViT hybrid
+   - Text Encoder : MLP
+   - Multimodal fusion : Late Fusion, Attention-based fusion
+   - output head : 계층적 진단 분류, 재발 위험 및 예후 예측
 
-3. **설명가능한 인공지능(XAI) 기법 적용**
-   - Grad-CAM, Attention Map, Feature Importance 기법을 활용하여 **모델의 의사결정 근거** 시각화
-   - 환자·의사 모두 이해할 수 있는 직관적인 설명 방식 개발
+3. **XAI**
+   - Grad-CAM : 초음파/CT 영상에서 진단에 기여한 중요 영역 시각화
+   - Attention Map : multimodal fusion 과정에서의 중요 정보 확인
+   - Feature Importance : 임상 변수별 예측 기여도 해석
 
-4. **임상적 가치 검증**
-   - 예측 성능뿐 아니라 **설명가능성, 범용성, 신뢰성** 측면에서의 효과 검증
-   - 환자-의사 간 의사소통 개선 및 임상 의사결정 지원 도구로의 활용 가능성 평가
+4. **평가 지표**
+   - classification 성능
+     - Accuracy
+     - F1-score
+     - Sensitivity / Specificity
+   - 재발 및 예후 예측
+     - C-index
+     - Survival-related metrics
+
+5. **임상적 가치 및 기대 효과**
+   - 의료진 : 진단 결과와 함께 제시되는 설명을 통해 신뢰도 높은 임상 판단 가능
+   - 환자 : 진단 및 예후 결과에 대한 직관적 이해 가능
+   - 연구적 가치
+     - multimodal 의료 AI의 실제 임상 적용 가능성 제시
+     - 계층적 예측 + XAI 결합 모델의 새로운 연구 사례 제안
 
 ---
 
-## 기대 효과
-- **의료진**: 모델이 제시하는 해석 가능한 근거를 활용하여 신뢰도 높은 진단 가능  
-- **환자**: 단순 결과가 아닌 "왜 그런 진단이 나왔는지" 직관적으로 이해 가능  
-- **연구적 가치**: 단순 예측 성능 중심에서 벗어나, 설명가능성과 임상적 신뢰성을 동시에 확보하는 AI 연구의 선도적 사례  
+## 윤리적 고려
+- 본 연구는 공개 데이터셋만을 활용하며 개인 식별 정보는 포함하지 않음.
 
 ---
 
@@ -46,5 +80,5 @@
 
 ---
 
-## 📅 최종 수정일
-2025.09.09
+## 최종 수정일
+2025.12.14
