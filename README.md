@@ -1,13 +1,16 @@
 # 멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발
-# Development of a Hierarchical Multimodal AI Model for Ovarian Cancer Diagnosis and Recurrence Prediction
+## Development of a Hierarchical Multimodal AI Model for Ovarian Cancer Diagnosis and Recurrence Prediction
 
+## Repository Overview
+본 Repository는 의료 영상과 임상 데이터를 통합한 멀티모달 인공지능 모델을 활용하여 난소 종양의 계층적 진단과 재발 예후 예측을 수행하는 연구 프로젝트의 구현 코드와 실험 내용을 담고 있다.
+졸업 프로젝트 연구 트랙의 일환으로 수행되었으며, 실제 임상 환경에서 활용 가능한 explainable 의료 AI 모델 개발을 목표로 한다. 
 
 ## 연구 주제
 **멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발**  
 본 연구는 의료 영상(CT) 과 임상 데이터(EHR) 를 통합한 멀티모달 인공지능 모델을 통해
 1. 난소 종양의 계층적 진단(양성 → 악성 → 병기) 을 수행하고,
-2. 치료 이후 재발 위험 및 예후를 예측하는 설명가능한 의료 AI 모델을 개발하는 것을 목표로 한다.
-
+2. 치료 이후 재발 위험 및 예후를 예측
+3. 예측 결과에 대한 xAI 및 LLM 기반 임상 보고서 자동 생성을 통한 임상 활용성 강화
 ---
 
 ## 연구 배경
@@ -31,6 +34,7 @@ step 3) 치료 이후 재발 위험 및 예후 예측
 1. [AIHub 난소암 데이터셋](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EB%82%9C%EC%86%8C%EC%95%94&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=71727)
 2. [MMOTU - Ovarian Ultrasound Images Dataset](https://www.kaggle.com/datasets/orvile/mmotu-ovarian-ultrasound-images-dataset/data)
 3. [Ovarian Cancer Risk and Progression Data](https://www.kaggle.com/datasets/datasetengineer/ovarian-cancer-risk-and-progression-data?select=Ovarian_patient_data.csv)
+* 현재 Repository에 포함된 실험 코드는 공개 Kaggle 데이터 기반 초기 검증 단계에 해당한다.
 
 ---
 
@@ -81,4 +85,4 @@ step 3) 치료 이후 재발 위험 및 예후 예측
 ---
 
 ## 최종 수정일
-2025.12.14
+2025.12.18
