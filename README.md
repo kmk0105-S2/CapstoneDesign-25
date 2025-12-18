@@ -1,5 +1,5 @@
-# 멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발
-## Development of a Hierarchical Multimodal AI Model for Ovarian Cancer Diagnosis and Recurrence Prediction
+# 멀티모달 의료 데이터를 활용한 난소암 계층적 진단·재발 예후 예측 및 LLM 기반 임상 보고서 생성 AI 모델 개발
+Development of an AI Model for Hierarchical Diagnosis and Recurrence Prognosis Prediction of Ovarian Cancer Using Multimodal Medical Data with LLM-Based Clinical Report Generation
 
 ## Repository Overview
 본 Repository는 의료 영상과 임상 데이터를 통합한 멀티모달 인공지능 모델을 활용하여 난소 종양의 계층적 진단과 재발 예후 예측을 수행하는 연구 프로젝트의 구현 코드와 실험 내용을 담고 있다.
