@@ -21,7 +21,7 @@ Development of an AI Model for Hierarchical Diagnosis and Recurrence Prognosis P
 
 ---
 
-## 문제 정의 (Probelm Definition)
+## 문제 정의
 본 연구는 다음의 세 가지 예측 문제를 계층적(hierarchical) 으로 해결한다.
 step 1) 난소 종양 양성 vs 악성 분류
 step 2) 악성 종양에 대한 병기(Stage) 분류
