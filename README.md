@@ -53,7 +53,7 @@ step 3) 치료 이후 재발 위험 및 예후 예측
    - Attention Map : multimodal fusion 과정에서의 중요 정보 확인
    - YOLO : CT 영상에서 종양 위치 탐지
   
-4. **RAG-LLM 기반 임상 보고서 생성""
+4. **RAG-LLM 기반 임상 보고서 생성**
    - faiss Vector DB : 난소암 관련 임상 가이드라인과 연구 논문 저장
    - LLM(Qwen3.5) 기반 임상 보고서 생성 : 멀티모달 모델의 예측 결과와 faiss 검색 모듈에서 반환된 근거 문서를 함께 입력으로 받아 환자 맞춤형 임상 보고서 생성
    
