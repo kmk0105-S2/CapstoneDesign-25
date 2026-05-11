@@ -1,0 +1,90 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Secret-risk notebooks
+Installation.ipynb
+**/Installation.ipynb
+RAG_code.ipynb
+**/RAG_code.ipynb
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.p12
+
+# Data
+data/
+dataset/
+datasets/
+raw_data/
+processed_data/
+preprocessed/
+split_metadata/
+download/
+
+*.csv
+*.xlsx
+*.xls
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Medical images / outputs
+*.dcm
+*.nii
+*.nii.gz
+*.png
+*.jpg
+*.jpeg
+
+# Generated reports
+output/
+outputs/
+results/
+runs/
+*.txt
+
+# Model files
+model/
+models/
+checkpoints/
+weights/
+
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+
+# RAG / Vector DB
+faiss_index/
+*.faiss
+*.index
+
+# Papers / documents
+*.pdf
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
