@@ -8,8 +8,8 @@ Development of an AI Model for Hierarchical Diagnosis and Recurrence Prognosis P
 ## 연구 주제
 **멀티모달 의료 데이터를 활용한 계층적 난소암 진단 및 재발 예후 예측 AI 모델 개발**  
 본 연구는 의료 영상(CT) 과 임상 데이터(EHR) 를 통합한 멀티모달 인공지능 모델을 통해
-1. 난소 종양의 계층적 진단(양성 → 악성 → 병기) 을 수행하고,
-2. 치료 이후 재발 위험 및 예후를 예측
+1. 난소 종양의 계층적 진단(양성 → 악성) 을 수행하고,
+2. 치료 이후 재발 위험 및 예후 예측
 3. 예측 결과에 대한 xAI 및 LLM 기반 임상 보고서 자동 생성을 통한 임상 활용성 강화
 ---
 
@@ -24,7 +24,7 @@ Development of an AI Model for Hierarchical Diagnosis and Recurrence Prognosis P
 ## 문제 정의
 본 연구는 다음의 세 가지 예측 문제를 계층적(hierarchical) 으로 해결한다.
 step 1) 난소 종양 양성 vs 악성 분류
-step 2) 악성 종양에 대한 병기(Stage) 분류
+step 2) 악성 종양에 대한 조직학적 아형(subtype) 분류
 step 3) 치료 이후 재발 위험 및 예후 예측
 이를 통해 실제 임상 의사결정 흐름과 유사한 단계적 판단 구조를 모델에 반영한다.
 
@@ -34,29 +34,32 @@ step 3) 치료 이후 재발 위험 및 예후 예측
 1. [AIHub 난소암 데이터셋](https://www.aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EB%82%9C%EC%86%8C%EC%95%94&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=71727)
 2. [MMOTU - Ovarian Ultrasound Images Dataset](https://www.kaggle.com/datasets/orvile/mmotu-ovarian-ultrasound-images-dataset/data)
 3. [Ovarian Cancer Risk and Progression Data](https://www.kaggle.com/datasets/datasetengineer/ovarian-cancer-risk-and-progression-data?select=Ovarian_patient_data.csv)
-* 현재 Repository에 포함된 실험 코드는 공개 Kaggle 데이터 기반 초기 검증 단계에 해당한다.
 
 ---
 
 ## 연구 내용
 1. **멀티모달 데이터 전처리**
-   - 초음파 영상 전처리 : normalization, resizing
+   - CT 영상 전처리 : normalization, resizing
    - 임상 데이터 전처리 : 결측치 처리, 범주형 변수 encoding
 
 2. **멀티모달 AI 모델 설계**
    - Image Encoder : ResNet50, ViT, ResNet50/ViT hybrid
    - Text Encoder : MLP
-   - Multimodal fusion : Late Fusion, Attention-based fusion
+   - Multimodal fusion : Concatenation
    - output head : 계층적 진단 분류, 재발 위험 및 예후 예측
 
 3. **XAI**
    - Grad-CAM : 초음파/CT 영상에서 진단에 기여한 중요 영역 시각화
    - Attention Map : multimodal fusion 과정에서의 중요 정보 확인
-   - Feature Importance : 임상 변수별 예측 기여도 해석
-
-4. **평가 지표**
+   - YOLO : CT 영상에서 종양 위치 탐지
+  
+4. **RAG-LLM 기반 임상 보고서 생성""
+   - faiss Vector DB : 난소암 관련 임상 가이드라인과 연구 논문 저장
+   - LLM(Qwen3.5) 기반 임상 보고서 생성 : 멀티모달 모델의 예측 결과와 faiss 검색 모듈에서 반환된 근거 문서를 함께 입력으로 받아 환자 맞춤형 임상 보고서 생성
+   
+5. **평가 지표**
    - classification 성능
-     - Accuracy
+     - ROC-AUC
      - F1-score
      - Sensitivity / Specificity
    - 재발 및 예후 예측
